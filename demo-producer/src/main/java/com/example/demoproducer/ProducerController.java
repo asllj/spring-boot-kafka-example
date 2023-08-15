@@ -20,7 +20,10 @@ public class ProducerController {
     @PostMapping(path = "/send/topic1/{message}")
     public void sendMessageTopic1(@PathVariable String message) {
         logger.info("Sending message for topic 1.....");
-        this.template.send("topic1", message);
+        for(int i = 0; i<10;i++){
+            this.template.send("topic1", message + i);
+        }
+
     }
 
     @PostMapping(path = "/send/topic2/{message}")

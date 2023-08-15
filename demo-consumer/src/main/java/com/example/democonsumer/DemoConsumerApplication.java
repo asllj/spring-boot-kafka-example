@@ -15,7 +15,7 @@ public class DemoConsumerApplication {
 	}
 
 
-	@KafkaListener(id = "myId", topics = "topic1")
+	@KafkaListener(id = "consumer 1", topics = "topic1")
 	public void listen(String in) {
 		System.out.println("CONSUMING MESSAGE: " + in);
 	}
