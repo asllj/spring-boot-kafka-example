@@ -17,9 +17,21 @@ public class ProducerController {
     @Autowired
     private KafkaTemplate<Object,Object> template;
 
-    @PostMapping(path = "/send/foo/{message}")
-    public void sendFoo(@PathVariable String message) {
-        logger.info("Sending message.....");
+    @PostMapping(path = "/send/topic1/{message}")
+    public void sendMessageTopic1(@PathVariable String message) {
+        logger.info("Sending message for topic 1.....");
         this.template.send("topic1", message);
+    }
+
+    @PostMapping(path = "/send/topic2/{message}")
+    public void sendMessageTopic2(@PathVariable String message) {
+        logger.info("Sending message for topic 2.....");
+        this.template.send("topic2", message);
+    }
+
+    @PostMapping(path = "/send/topic3/{message}")
+    public void sendMessageTopic3(@PathVariable String message) {
+        logger.info("Sending message for topic 3.....");
+        this.template.send("topic3", message);
     }
 }
